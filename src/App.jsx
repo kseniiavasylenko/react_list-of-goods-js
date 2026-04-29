@@ -23,7 +23,7 @@ export const App = () => {
   const [sortField, setSortField] = useState('');
   const [isReversed, setIsReversed] = useState(false);
 
-  const sorted = [...baseGoods];
+  const sorted = [...goodsFromServer];
 
   if (sortField === SORT_GOODS_NAME) {
     sorted.sort((a, b) => a.localeCompare(b));
@@ -78,7 +78,7 @@ export const App = () => {
         >
           Reverse
         </button>
-        {isInitial && (
+        {!isInitial && (
           <button
             type="button"
             className="button is-danger is-light"
@@ -88,11 +88,6 @@ export const App = () => {
           </button>
         )}
       </div>
-      {sorted.map(good => (
-        <li key={good} data-cy="Good">
-          {good}
-        </li>
-      ))}
       <ul>
         {sorted.map(good => (
           <li key={good} data-cy="Good">
