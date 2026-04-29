@@ -19,7 +19,7 @@ const goodsFromServer = [
 ];
 
 export const App = () => {
-  const [baseGoods, setBaseGoods] = useState(goodsFromServer);
+  // const [baseGoods, setBaseGoods] = useState(goodsFromServer);
   const [sortField, setSortField] = useState('');
   const [isReversed, setIsReversed] = useState(false);
 
@@ -36,15 +36,13 @@ export const App = () => {
   }
 
   const handleReset = () => {
-    setBaseGoods(goodsFromServer);
+    // setBaseGoods(goodsFromServer);
     setSortField('');
     setIsReversed(false);
   };
 
-  const isInitial =
-    sortField === '' &&
-    !isReversed &&
-    baseGoods.join() === goodsFromServer.join();
+  const isInitial = sortField === '' && !isReversed;
+  // baseGoods.join() === goodsFromServer.join();
 
   return (
     <div className="section content">
